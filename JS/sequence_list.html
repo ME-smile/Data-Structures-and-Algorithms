@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS实现顺序表</title>
+    <script>
+        window.onload=function(){
+                // 插入操作
+                function linear_list_insert(arr,pos,element){
+                    if((pos-1)<0||pos >= arr.length){
+                        alert("非法的插入位置"+pos)
+                    }else{
+                        var j = arr.length;
+                        for(var i = j-1 ;i >=(pos-1);i--){
+                                arr[i+1]=arr[i];
+                        }
+                        arr[pos-1]=element;
+                      }
+              }
+                var arr=[1,2,3,4,5];
+                linear_list_insert(arr,10,9);
+                alert(arr);
+               // 删除操作
+                function linear_list_delete(arr,pos){
+                     if((pos-1)<0||pos >= arr.length){
+                         alert("非法的删除位置"+pos)
+                     }else{
+                        for(var i=(pos-1);i<arr.length;i++){
+                            arr[i]=arr[i+1]
+                        }
+                     }
+                } 
+                var arr=[1,2,3,4,5];
+                linear_list_delete(arr,-2);
+                alert(arr)
+                
+                
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

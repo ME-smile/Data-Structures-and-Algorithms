@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS实现单链表</title>
+    <script>
+    function Node(element){
+        this.element=element;
+        this.next=null;
+    }
+    function LinkedList(){
+        this.head=new Node('head')//头节点
+    }
+    LinkedList.prototype={
+        //显示方法(待完善)
+        display:function(){
+            var currentNode=this.head,result;
+            while(currentNode.next){
+                result += currentNode.next.element;//为了不显示头节点
+                currentNode=currentNode.next;
+            }
+            return result.slice(9);
+            
+        },
+        //按值查找(已完善)
+        indexOf:function(item){
+            var currentNode=this.head;
+            var i=0;
+            while(currentNode && currentNode.element!=item){
+                currentNode=currentNode.next;
+                i++;
+            }
+            if(!currentNode){
+                return  false;
+            }else{
+                return i;
+            }
+        },
+        //按位置查找(已完善)
+        findByPos:function(pos){
+            var currentNode=this.head;
+            var i=0;
+            while(i<pos && currentNode){
+                i++;
+                currentNode=currentNode.next;
+            }if(i==pos && currentNode){
+                return currentNode;
+            }else{
+                return false;
+            }
+        },
+        //插入操作(已完善)
+        insert:function(pos,item){
+            var currentNode=this.findByPos(pos-1);
+            if(currentNode){
+                var newNode=new Node(item);
+                newNode.next=currentNode.next;
+                currentNode.next=newNode;  
+            }else{
+                return false;
+            }
+        },
+        //移除操作(已完善)
+        remove:function(pos){
+            var preNode=this.findByPos(pos-1);
+            var currentNode=this.findByPos(pos);
+            if(currentNode){
+                preNode.next=currentNode.next;
+                currentNode=null;       
+            }
+        },
+        //在尾部添加(已完善)
+        append:function(item){
+            var currentNode=this.head;
+            var newNode=new Node(item);
+            newNode.next=currentNode.next;
+            currentNode.next=newNode;
+        },
+        //清空链表(已完善)
+        clean:function(){
+            var currentNode=this.head;
+            while(currentNode.next){
+                currentNode=currentNode.next;
+                currentNode.next=null;
+            }
+            currentNode=null;
+            this.head.next=null;
+        },   
+        //逆序链表？？？     
+    }
+    </script>
+</head>
+<body>
+</body>
+</html>
