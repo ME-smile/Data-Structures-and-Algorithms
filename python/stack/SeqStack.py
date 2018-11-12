@@ -2,7 +2,7 @@
     now we are going to talk about the deformations of liner list.first we are going to introduce stack.
 stack is a kind of specific linear list,the diffrence is that the operaions on stack is restricted.if we 
 want to insert elements into stack,it must be added to the top of stack.Also,if we want to remove the elements in the stack,
-we can only remove it form the top of the stack.It means its insertion and remove only happened at the top of stack.Just because of this,stack has the characteristic of 'FIFO'(first in first out).
+we can only remove it form the top of the stack.It means its insertion and remove only happened at the top of stack.Just because of this,stack has the characteristic of 'FILO'(first in last out).
     we make this as a rule: the varible top is used for stage the position of the of top the stack element. 
     when top equal with -1,it means the stack is empty.
 '''
